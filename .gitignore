@@ -1,0 +1,12 @@
+#for mac
+#/.DS_Store
+
+# intellij IDE
+*.idea
+
+# iml
+*.iml
+
+out/
+
+

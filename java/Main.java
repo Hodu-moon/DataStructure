@@ -1,15 +1,26 @@
-import java.util.ArrayList;
+import _01_ArrayList.ArrayList;
+
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-        List list = new ArrayList();
-        list.add(10);
-        list.add(22);
-        list.add(33);
+        int[]a = new int[5];
+        System.out.println("a.length = " + a.length);
+        ArrayList arrayList = new ArrayList(10);
+        for (int i = 0; i < 10; i++){
+            arrayList.add(i);
+        }
 
-        int set = (int)list.set(1, 100);
-        System.out.println("set = " + set);
+        for(int i = 0; i < arrayList.size(); i++){
+            System.out.print(arrayList.get(i) + " ");
+        }
+        System.out.println("======= after remove(5) ");
+
+        arrayList.remove(5);
+        for(int i = 0; i < arrayList.size(); i++){
+            System.out.print(arrayList.get(i) + " ");
+        }
+        System.out.println();
     }
 }
