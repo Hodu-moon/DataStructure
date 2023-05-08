@@ -105,7 +105,7 @@ public class ArrayList<E> implements List<E>, Cloneable{
 
     @Override
     public boolean remove(Object value) {
-        int index = indexof(value);
+        int index = indexOf(value);
 
         if(index == -1){
             return false;
@@ -136,14 +136,14 @@ public class ArrayList<E> implements List<E>, Cloneable{
 
     @Override
     public boolean contains(Object value) {
-        if(indexof(value) > -1){
+        if(indexOf(value) > -1){
             return true;
         }
         return false;
     }
 
     @Override
-    public int indexof(Object value) {
+    public int indexOf(Object value) {
         for(int i = 0; i < size; i++){
             if(array[i].equals(value)){
                 return i;
@@ -152,7 +152,7 @@ public class ArrayList<E> implements List<E>, Cloneable{
         return -1;
     }
 
-    public int lastIndexOf(Object value){
+    public int lastindexOf(Object value){
         for(int i = size-1; i >=0 ; i--){
             if(array[i].equals(value)){
                 return i;

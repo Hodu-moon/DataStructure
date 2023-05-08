@@ -92,11 +92,11 @@ public class MyArrayList<E> implements List<E> {
 
     @Override
     public boolean contains(Object value) {
-        return indexof(value) >= 0 ;
+        return indexOf(value) >= 0 ;
     }
 
     @Override
-    public int indexof(Object o) {
+    public int indexOf(Object o) {
         int index = 0;
 
         for(int i = 0; i < arrayList.length; i++){
@@ -124,7 +124,7 @@ public class MyArrayList<E> implements List<E> {
 
     @Override
     public boolean remove(Object value) {
-        int index = indexof(value);
+        int index = indexOf(value);
         if( index > 0 ){
             remove(index);
             return true;

@@ -81,7 +81,7 @@ public interface List<E> {
      * @param o 위치를 알고싶은 element
      * @return element의 위치. element가 없으면 -1을 반환한다.
      */
-    int indexof(Object o);
+    int indexOf(Object o);
 
     /**
      * 리스트의 사이즈를 반환함

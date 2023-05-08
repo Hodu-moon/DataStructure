@@ -110,11 +110,23 @@ public class SLinkedList<E> implements List<E> {
 
     @Override
     public E remove(int index) {
+        if(index == 0){
+            return remove();
+        }
+
+        if (index >= size || index < 0) {
+            throw new IndexOutOfBoundsException();
+        }
+
         Node<E> prev_node = search(index - 1);
 
         Node<E> remove_node = prev_node.next;
 
         prev_node.next = remove_node.next;
+
+        if(prev_node.next == null) {
+            tail = prev_node;
+        }
         size--;
 
         return remove_node.data;
@@ -122,8 +134,8 @@ public class SLinkedList<E> implements List<E> {
 
     @Override
     public boolean remove(Object value) {
-        int index = indexof(value);
-        if(index > 0){
+        int index = indexOf(value);
+        if(index >= 0){
             remove(index);
         }
 
@@ -185,11 +197,11 @@ public class SLinkedList<E> implements List<E> {
 //        }
 
 
-        return indexof(value) >= 0 ;
+        return indexOf(value) >= 0 ;
     }
 
     @Override
-    public int indexof(Object o) {
+    public int indexOf(Object o) {
 
 //        for(int i = 0; i < size; i++){
 //            Node<E> search = search(i);
