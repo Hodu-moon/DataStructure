@@ -2,13 +2,12 @@ package _03_DoublyLinkedList;
 
 import interface_form.List;
 
+import java.util.NoSuchElementException;
+
 public class MyDLinkedList<E> implements List<E> {
 
     private Node<E> head; // 노드의
     private Node<E> tail;
-
-
-
     private int size;
 
     public MyDLinkedList(){
@@ -97,9 +96,7 @@ public class MyDLinkedList<E> implements List<E> {
 
         // size 가 0인경우
         if(size == 0){
-            head = tail = node;
-            size++;
-            return;
+           addFirst(element);
         }
         // size > 0 인경우
 
@@ -141,29 +138,33 @@ public class MyDLinkedList<E> implements List<E> {
 
     // 처음꺼 삭제
     public E remove(){
-        if(size <= 0){
-            throw new IndexOutOfBoundsException();
+        if(head == null){
+            throw new NoSuchElementException();
         }
-
-
         Node<E> removed = head;
+        E data = removed.data;
 
-        // 개수가 1개이다.
-        if(head.next != null){
-            head.next.prev = null;
+        Node<E> next_node = head.next;
+
+        head.next = null;
+        head.data = null;
+
+        // 다음 노드가 있을경우
+        if(next_node != null){
+            next_node.prev = null;
         }
 
-        head = head.next;
-
-        removed.next = null;
+        // next_node가 null이면 head = null 이 들어간다.
+        head = next_node;
 
         size --;
 
+        //
         if(size == 0){
             tail = null;
         }
 
-        return removed.data;
+        return data;
 
     }
 
@@ -176,6 +177,7 @@ public class MyDLinkedList<E> implements List<E> {
         if(index == 0){
             return remove();
         }
+
         //마지막 삭제
         if(index == size - 1){
             Node<E> removed = tail;

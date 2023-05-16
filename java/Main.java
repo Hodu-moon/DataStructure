@@ -1,27 +1,25 @@
-import _01_ArrayList.ArrayList;
-import _02_LinkedList.MySLinkedList;
-import _02_LinkedList.SLinkedList;
-import _03_DoublyLinkedList.MyDLinkedList;
-
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import _06_LinkedListQueue.LinkedListQueue;
 
 public class Main {
 
     public static void main(String[] args) {
-        MyDLinkedList<Integer> list = new MyDLinkedList<>();
-        list.add(100);
-        list.remove(Integer.valueOf(100));
-        list.add(344);
-        list.add(0, 44);
-        list.add(2, 44);
-        list.remove();
-        list.remove(1);
+        LinkedListQueue<Integer> a = new LinkedListQueue<>();
 
-        for(int i = 0; i < list.size(); i++){
-            System.out.print( list.get(i) + " ");
+        System.out.println("offer");
+        for(int i = 0; i < 16; i++){
+            a.offer(i);
         }
-        System.out.println();
+
+        for(int i = 0; i < 16; i++){
+            System.out.print(a.poll());
+        }
+
+        for(int i = 0; i < 33; i++){
+            a.offer(i);
+        }
+
+        for(int i = 0; i < 16; i++){
+            System.out.print(a.poll());
+        }
     }
 }
